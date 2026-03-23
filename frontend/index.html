@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Intelligent Decision Agent | Smart Scheduling Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Intelligent Decision Agent</h1>
+                        <p>API-Integrated Smart Scheduling System</p>
+                    </div>
+                </div>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>System Active</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <div class="input-card">
+                <div class="card-header">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h2>Scheduling Request</h2>
+                </div>
+                <p class="card-description">
+                    Enter a natural-language prompt and the system will intelligently schedule your meeting 
+                    by checking calendar availability, weather conditions, and CRM data.
+                </p>
+                
+                <div class="input-group">
+                    <label for="userQuery">
+                        <i class="fas fa-comment-dots"></i>
+                        User Query
+                    </label>
+                    <textarea 
+                        id="userQuery" 
+                        rows="3" 
+                        placeholder="Example: Schedule a meeting with Priya tomorrow at 4 PM in Hyderabad"
+                    >Schedule a meeting with Priya tomorrow at 4 PM in Hyderabad</textarea>
+                </div>
+
+                <div class="examples-section">
+                    <span class="examples-label">Try these examples:</span>
+                    <div class="example-chips">
+                        <button class="example-chip" data-query="Schedule a meeting with Priya tomorrow at 4 PM in Hyderabad">
+                            <i class="fas fa-user"></i> Priya - Tomorrow 4PM
+                        </button>
+                        <button class="example-chip" data-query="Book a call with John on Friday at 10 AM in Bangalore">
+                            <i class="fas fa-phone"></i> John - Friday 10AM
+                        </button>
+                        <button class="example-chip" data-query="Arrange a team sync with Alex next Monday at 2 PM in Mumbai">
+                            <i class="fas fa-users"></i> Alex - Monday 2PM
+                        </button>
+                    </div>
+                </div>
+
+                <button id="runAgentBtn" class="run-button">
+                    <i class="fas fa-play"></i>
+                    <span>Run Decision Agent</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-grid">
+                <!-- Summary Card -->
+                <div class="result-card summary-card">
+                    <div class="card-header">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>Decision Summary</h3>
+                    </div>
+                    <div id="summaryContent" class="summary-content">
+                        <div class="placeholder">
+                            <i class="fas fa-hourglass-half"></i>
+                            <p>No data yet</p>
+                            <span>Submit a query to see the scheduling decision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parsed Request Card -->
+                <div class="result-card parsed-card">
+                    <div class="card-header">
+                        <i class="fas fa-code-branch"></i>
+                        <h3>Parsed Request</h3>
+                    </div>
+                    <div id="parsedContent" class="parsed-content">
+                        <div class="placeholder">
+                            <i class="fas fa-spinner fa-pulse"></i>
+                            <p>Awaiting input...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Results Card -->
+                <div class="result-card api-card">
+                    <div class="card-header">
+                        <i class="fas fa-plug"></i>
+                        <h3>API Integration Results</h3>
+                    </div>
+                    <div id="apiResults" class="api-results">
+                        <div class="placeholder">
+                            <i class="fas fa-cloud-sun"></i>
+                            <p>Calendar, weather, and CRM outputs will render here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decision Logic Card -->
+                <div class="result-card logic-card">
+                    <div class="card-header">
+                        <i class="fas fa-diagram-project"></i>
+                        <h3>Decision Logic Flow</h3>
+                    </div>
+                    <div id="decisionLogic" class="decision-logic">
+                        <div class="placeholder">
+                            <i class="fas fa-git-merge"></i>
+                            <p>Decision steps will appear after processing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flow Diagram Card -->
+                <div class="result-card flow-card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>API Flow Diagram</h3>
+                    </div>
+                    <div id="flowDiagram" class="flow-diagram">
+                        <div class="placeholder">
+                            <i class="fas fa-project-diagram"></i>
+                            <p>End-to-end API flow visualization</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Validation Card -->
+                <div class="result-card validation-card">
+                    <div class="card-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Output Validation</h3>
+                    </div>
+                    <div id="validationContent" class="validation-content">
+                        <div class="placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Validation checks will appear here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Warnings Card -->
+                <div class="result-card warnings-card">
+                    <div class="card-header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Warnings & Recommendations</h3>
+                    </div>
+                    <div id="warningsContent" class="warnings-content">
+                        <div class="placeholder">
+                            <i class="fas fa-info-circle"></i>
+                            <p>No warnings or recommendations yet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Failure Handling Card -->
+                <div class="result-card failure-card">
+                    <div class="card-header">
+                        <i class="fas fa-shield-virus"></i>
+                        <h3>Failure Handling Protocol</h3>
+                    </div>
+                    <div id="failureHandling" class="failure-handling">
+                        <div class="placeholder">
+                            <i class="fas fa-tools"></i>
+                            <p>Backend failure handling approach will appear here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-spinner">
+                <i class="fas fa-cog fa-spin"></i>
+                <p>Processing your request...</p>
+                <span>Checking calendar, weather, and CRM data</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
